@@ -4,7 +4,7 @@ This library provides support to AVR CPUs which contain an internal CAN controll
 
 See https://github.com/thomasonw/NMEA2000_avr  &  https://github.com/thomasonw/avr_can
 
-Current support CPUs include:
+Currently supported CPUs include:
 * ATmega16M1
 * ATmega32M1
 * ATmega64M1
@@ -12,7 +12,7 @@ Current support CPUs include:
 * ATmega64C1
 * AT90CAN64
 * AT90CAN128
- 
+* 
 
 ## Usage
 
@@ -32,7 +32,7 @@ Also required is AVR_CAN driver <https://github.com/thomasonw/avr_can>   Make su
     void loop() {
     }
 
- Examples using only one CAN port in the NMEA2000 lobrary will all function.  The ATmega M1/C1 & AT90CAN CPUs only have one CAN controller.
+ All examples using one CAN port in the NMEA2000 library will.  The ATmega M1/C1 & AT90CAN CPUs only have one CAN controller.
  
 
 ## Hardware
