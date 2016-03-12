@@ -1,8 +1,10 @@
 # NMEA2000_avr
 
-This library provides a AVR CAn CPUs  driver for the NMEA2000 library.
+This library provides support to AVR CPUs which contain an internal CAN controller when used with the [NMEA2000](https://github.com/ttlappalainen/NMEA2000) library.
 
 See https://github.com/thomasonw/NMEA2000_avr
+
+    https://github.com/thomasonw/avr_can
 
 Current support CPUs include:
 * ATmega16M1
@@ -47,10 +49,9 @@ You will need a CAN transceiver like the MCP2551
 |                   |        CANH         |      Blue      |
 |                   |        CANL         |     White      |
 |        Gnd        |         Gnd         |     Black      |
-| Vin (5v when usb) |         VDD         |                |
+|        5v         |         VDD         |                |
 |        Gnd        |         Rs          |                |
 |                   | Vref (disconnected) |                |
 
 
-See also <https://github.com/thomasonw/ATmegaxxM1-C1> for basic support of the ATmegaxxM1 and C1 CPUs
-
+See also <https://github.com/thomasonw/ATmegaxxM1-C1> for Arduino IDE support of the ATmegaxxM1 and ATmegaxxC1 CPUs
