@@ -2,9 +2,7 @@
 
 This library provides support to AVR CPUs which contain an internal CAN controller when used with the [NMEA2000](https://github.com/ttlappalainen/NMEA2000) library.
 
-See https://github.com/thomasonw/NMEA2000_avr
-
-    https://github.com/thomasonw/avr_can
+See https://github.com/thomasonw/NMEA2000_avr  &  https://github.com/thomasonw/avr_can
 
 Current support CPUs include:
 * ATmega16M1
