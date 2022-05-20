@@ -1,5 +1,5 @@
 /* 
-NMEA2000_avr.cpp
+NMEA2000_SAME51.cpp
 
 2016 Copyright (c) Kave Oy, www.kave.fi  All right reserved.
 
@@ -31,7 +31,7 @@ based setup. See also NMEA2000 library.
 */
 
 #include <NMEA2000_avr.h> 
-#include <avr_can.h>                            // https://github.com/thomasonw/avr_can
+#include <CAN.h>                            // https://github.com/adafruit/arduino-CAN
 
 
 //*****************************************************************************
@@ -60,18 +60,21 @@ bool tNMEA2000_avr::CANSendFrame(unsigned long id, unsigned char len, const unsi
 
 //*****************************************************************************
 bool tNMEA2000_avr::CANOpen() {
-    Can0.begin(CAN_BPS_250K);
+    //Can.begin(CAN_BPS_250K);
+    CAN.begin(250E3)) {
+    Serial.println("Starting CAN ...");
+   
   //By default there are 7 mailboxes for each device that are RX boxes
   //This sets each mailbox to have an open filter that will accept extended
   //or standard frames
   int filter;
   //extended
   for (filter = 0; filter < 3; filter++) {
-  	Can0.setRXFilter(filter, 0, 0, true);
+  	CAN.setRXFilter(filter, 0, 0, true);
   }  
   //standard
   for (int filter = 3; filter < 7; filter++) {
-  	Can0.setRXFilter(filter, 0, 0, false);
+  	CAN.setRXFilter(filter, 0, 0, false);
   }  
     return true;
 }
@@ -81,8 +84,8 @@ bool tNMEA2000_avr::CANGetFrame(unsigned long &id, unsigned char &len, unsigned 
   bool HasFrame=false;
   CAN_FRAME incoming;
 
-    if ( Can0.available() > 0 ) {           // check if data coming
-        Can0.read(incoming); 
+    if ( CAN.available() > 0 ) {           // check if data coming
+        CAN.read(incoming); 
         id=incoming.id;
         len=incoming.length;
         for (int i=0; i<len && i<8; i++) buf[i]=incoming.data.bytes[i];
