@@ -61,8 +61,10 @@ bool tNMEA2000_avr::CANSendFrame(unsigned long id, unsigned char len, const unsi
 //*****************************************************************************
 bool tNMEA2000_avr::CANOpen() {
     //Can.begin(CAN_BPS_250K);
-    CAN.begin(250E3)) {
-    Serial.println("Starting CAN ...");
+     if (!CAN.begin(500E3)) {
+    Serial.println("Starting CAN failed!");
+    while (1);
+  }
    
   //By default there are 7 mailboxes for each device that are RX boxes
   //This sets each mailbox to have an open filter that will accept extended
